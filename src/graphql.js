@@ -19,17 +19,18 @@ const typeDefs = gql `
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    suras: [Sura]
+    suras: [Sura!]!
+    search(search: String!): [Sura!]!
   }
 `;
 
 const suras = [{
-    title: 'Harry Potter and the Chamber of Secrets',
+    title: 'الفاتحة',
     ayaCount: 7,
   },
   {
-    title: 'Jurassic Park',
-    ayaCount: 7,
+    title: 'البِقرة',
+    ayaCount: 286,
   },
 ];
 
@@ -38,6 +39,16 @@ const suras = [{
 const resolvers = {
   Query: {
     suras: () => suras,
+    search: (_, {
+      search
+    }) => {
+
+      if (!search) {
+        return []
+      }
+
+      return suras.filter(x => x.title.indexOf(search) > -1)
+    }
   },
 }
 
