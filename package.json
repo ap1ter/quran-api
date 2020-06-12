@@ -1,0 +1,14 @@
+{
+  "name": "quran-api",
+  "version": "1.0.0",
+  "description": "Quran Apps Api ",
+  "main": "src/index.ts",
+  "repository": "https://github.com/ap1ter/quran-api.git",
+  "author": "Andrey Piterov <pfm@live.ru>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "apollo-server": "^2.14.3",
+    "graphql": "^15.1.0"
+  }
+}
